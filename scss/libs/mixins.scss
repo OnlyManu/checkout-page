@@ -1,0 +1,7 @@
+@import "functions.scss";
+
+@mixin setFontProps($size, $lheight, $weight){
+    font-size: fontSizeInRem($size);
+    font-weight: $weight;
+    line-height: fontSizeInRem($lheight);
+}

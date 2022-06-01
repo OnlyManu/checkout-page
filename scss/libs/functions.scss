@@ -1,0 +1,21 @@
+@use "sass:math";
+
+@function heightInVH($h: 1, $sh: 776){
+    $h: math.div($h, $sh);
+    @return $h*100vh;
+}
+
+@function widthInVW($w: 1, $sw: 375){
+    $w: math.div($w, $sw);
+    @return $w*100vw;
+}
+
+@function fontSizeInRem($s){
+    @return math.div($s, 14)*1rem;
+}
+@function widthInRem($s){
+    @return math.div($s, 14)*1rem;
+}
+@function heightInRem($s){
+    @return math.div($s, 14)*1rem;
+}

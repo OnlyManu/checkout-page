@@ -1,0 +1,59 @@
+@import "./libs/reset.scss";
+@import "./libs/functions.scss";
+@import "./libs/mixins.scss";
+
+/*fonts*/
+$font-primary:'Montserrat', sans-serif;
+/*colors*/
+$color-primary:#4E5150;
+$color-secondary:#A9A9A9;
+$color-box: #E5E5E5;
+$color-footer: #B9BDCF;
+/*padding*/
+$padding-mobile: widthInVW(12);
+$padding-desktop: widthInVW(238, 1440);
+
+html{
+    font-family: $font-primary;
+    color: $color-primary;
+    background-color: #FFFFFF;
+}
+.container{
+    width: 100%;
+    padding: {
+        left: $padding-mobile;
+        right: $padding-mobile;
+    };
+}
+
+main{
+    
+}
+
+footer{
+    @include setFontProps(14, 17, 500);
+    color: $color-footer;
+    text-align: center;
+    margin-bottom: 24px;
+    .author{
+        text-decoration: none;
+        color: $color-footer;
+        font-weight: 700;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (min-width: 992px) {
+    .container{
+        padding: {
+            left: $padding-desktop;
+            right: $padding-desktop;
+        };
+    }
+}

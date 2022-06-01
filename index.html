@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,
+  maximum-scale=5"
+    />
+
+    <link rel="icon" href="devchallenges.png" type="image/png"/>
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://devchallenges.io/"
+    />
+
+    <!--Chargement des fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Devchallenges</title>
+
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="heading-lg">Checkout</h1>
+      </header>
+      <aside>
+        <div class="articles">
+          <div class="article">
+            <img src="./img/photo1.png" class="article-picture" alt="Vintage Backbag">
+            <div class="article-info">
+              <div class="description">
+                <span class="name">Vintage Backbag</span>
+                <div class="prices">
+                  <span class="price">$54.99</span><span class="old-price">$94.99</span>
+                </div>
+              </div>
+              <div class="quantity">
+                <span class="quantity-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+                <span>1</span>
+                <span class="quantity-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M19 13H5v-2h14v2z"/></svg></span>
+              </div>
+            </div>
+          </div>
+          <div class="article">
+            <img src="./img/photo2.png" class="article-picture" alt="Vintage Backbag">
+            <div class="article-info">
+              <div class="description">
+                <span class="name">Levi Shoes</span>
+                <div class="prices">
+                  <span class="price">$74.99</span><span class="old-price">$124.99</span>
+                </div>
+              </div>
+              <div class="quantity">
+                <span class="quantity-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+                <span>1</span>
+                <span class="quantity-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M19 13H5v-2h14v2z"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="check">
+          <div class="info">
+            <span class="label">Shipping</span>
+            <span class="value">$19</span>
+          </div>
+          <div class="info">
+            <span class="label">Total</span>
+            <span class="value">$148.98</span>
+          </div>
+        </div>
+      </aside>
+      <main>
+        <form action="">
+          <fieldset>
+            <h4 class="heading-md">Contact infomation</h4>
+            <div class="form-input">
+              <label class="input-label" for="email">E-mail</label>
+              <div class="input-group">
+                <input type="email" class="input" id="email" placeholder="Enter your email...">
+                <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+              </div>
+            </div>
+            <div class="form-input">
+              <label class="input-label" for="phone">Phone</label>
+              <div class="input-group">
+                <input type="tel" class="input" id="phone" placeholder="Enter your phone...">
+                <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <h4 class="heading-md">Shipping address</h4>
+            <div class="form-input">
+              <label class="input-label" for="full_name">Full name</label>
+              <div class="input-group">
+                <input type="text" class="input" id="full_name" placeholder="" value="Rodney Cotton">
+                <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></span>
+              </div>
+            </div>
+            <div class="form-input">
+              <label class="input-label" for="address">Address</label>
+              <div class="input-group">
+                <input type="text" class="input" id="address" placeholder="Your address..">
+                <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
+              </div>
+            </div>
+            <div class="form-input">
+              <label class="input-label" for="city">City</label>
+              <div class="input-group">
+                <input type="text" class="input" id="city" placeholder="Your city..">
+                <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg></span>
+              </div>
+            </div>
+            <div class="two-inputs">
+              <div class="form-input">
+                <label class="input-label" for="country">Country</label>
+                <div class="input-group">
+                  <input type="text" class="input" id="Country" placeholder="Your country..">
+                  <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></span>
+                </div>
+              </div>
+              <div class="form-input">
+                <label class="input-label" for="postal_code">Postal code</label>
+                <div class="input-group">
+                  <input type="number" class="input" id="postal_code" placeholder="Your postal code..">
+                  <span class="input-icon"></span>
+                </div>
+              </div>
+            </div>
+            <div class="checkbox-group">
+              <label class="checkbox">
+                <input type="checkbox" name="" aria-labelledby="save">
+                <span class="background"></span>
+              </label>
+              <span id="save">Save this information for next time</span>
+            </div>
+          </fieldset>
+          <button class="btn-submit">Continue</button>
+        </form>
+      </main>
+      <footer>
+        <p>created by <a href="https://github.com/OnlyManu/" class="author">onlymanu</a>-devChallenge.io</p>
+      </footer>
+    </div>
+  </body>
+</html>
