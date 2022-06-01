@@ -6,12 +6,12 @@
 $font-primary:'Montserrat', sans-serif;
 /*colors*/
 $color-primary:#4E5150;
-$color-secondary:#A9A9A9;
-$color-box: #E5E5E5;
-$color-footer: #B9BDCF;
+$color-secondary:#333333;
+$color-tertiary: #F2994A;
+$color-footer: #BDBDBD;
 /*padding*/
 $padding-mobile: widthInVW(12);
-$padding-desktop: widthInVW(238, 1440);
+$padding-desktop: widthInVW(240, 1440);
 
 html{
     font-family: $font-primary;
@@ -25,7 +25,118 @@ html{
         right: $padding-mobile;
     };
 }
+.color-primary{
+    color: $color-primary;
+}
+.color-secondary{
+    color: $color-secondary;
+}
+.icon{
+    path{
+        fill: #828282;
+    }
+}
+.heading-lg{
+    @include setFontProps(24, 29, 600);
+}
+.heading-md{
+    @include setFontProps(14, 17, 600);
+    color: $color-secondary;
+}
+.price{
+    @include setFontProps(12, 15, 600);
+    color: $color-tertiary;
+}
+.old-price{
+    @include setFontProps(10, 12, 600);
+    text-decoration: line-through;
+    height: fit-content;
+}
+.quantity{
+    @include setFontProps(16, 20, 600);
+    color: $color-secondary;
+}
 
+header{
+    margin: {
+        top: 32px;
+        bottom: 20.96px;
+    }
+}
+aside{
+    width: 100%;
+    background-color: #F2F2F2;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 87.15px;
+    padding: {
+        left: 26.87px;
+        top: 30.56px;
+        bottom: 30.56px;
+    };
+    .articles{
+        display: flex;
+        flex-direction: column;
+        gap: 28.48px;
+    }
+    .check{
+        display: flex;
+        flex-direction: column;
+    }
+}
+.articles{
+    .article{
+        display: flex;
+        gap: 18.47px;
+        .article-picture{
+            width: widthInVW(122.75);
+            border-radius: 13px;
+        }
+        .article-info{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .description{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .prices{
+            display: flex;
+            align-items: flex-end;
+            .price{
+                width: 70px;
+            }
+        }
+        .quantity-info{
+            width: widthInVW(122.8);
+            height: 49.86px;
+            border: 1px solid #828282;
+            border-radius: 12px;
+            display: flex;
+            padding: {
+                left: 10.16px;
+                right: 10.16px;
+            };
+            justify-content: space-between;
+            align-items: center;
+            .quantity-icon{
+                background-color: #E0E0E0;
+                border-radius: 4px;
+                width: 19.39px;
+                height: 19.39px;
+                display: grid;
+                place-items: center;
+                .icon{
+                    width: 14px;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
 main{
     
 }

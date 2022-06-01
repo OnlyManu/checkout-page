@@ -58,17 +58,139 @@ html {
   padding-right: 3.2vw;
 }
 
+.color-primary {
+  color: #4E5150;
+}
+
+.color-secondary {
+  color: #333333;
+}
+
+.icon path {
+  fill: #828282;
+}
+
+.heading-lg {
+  font-size: 1.7142857143rem;
+  font-weight: 600;
+  line-height: 2.0714285714rem;
+}
+
+.heading-md {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2142857143rem;
+  color: #333333;
+}
+
+.price {
+  font-size: 0.8571428571rem;
+  font-weight: 600;
+  line-height: 1.0714285714rem;
+  color: #F2994A;
+}
+
+.old-price {
+  font-size: 0.7142857143rem;
+  font-weight: 600;
+  line-height: 0.8571428571rem;
+  text-decoration: line-through;
+  height: fit-content;
+}
+
+.quantity {
+  font-size: 1.1428571429rem;
+  font-weight: 600;
+  line-height: 1.4285714286rem;
+  color: #333333;
+}
+
+header {
+  margin-top: 32px;
+  margin-bottom: 20.96px;
+}
+
+aside {
+  width: 100%;
+  background-color: #F2F2F2;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 87.15px;
+  padding-left: 26.87px;
+  padding-top: 30.56px;
+  padding-bottom: 30.56px;
+}
+aside .articles {
+  display: flex;
+  flex-direction: column;
+  gap: 28.48px;
+}
+aside .check {
+  display: flex;
+  flex-direction: column;
+}
+
+.articles .article {
+  display: flex;
+  gap: 18.47px;
+}
+.articles .article .article-picture {
+  width: 32.7333333333vw;
+  border-radius: 13px;
+}
+.articles .article .article-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.articles .article .description {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.articles .article .prices {
+  display: flex;
+  align-items: flex-end;
+}
+.articles .article .prices .price {
+  width: 70px;
+}
+.articles .article .quantity-info {
+  width: 32.7466666667vw;
+  height: 49.86px;
+  border: 1px solid #828282;
+  border-radius: 12px;
+  display: flex;
+  padding-left: 10.16px;
+  padding-right: 10.16px;
+  justify-content: space-between;
+  align-items: center;
+}
+.articles .article .quantity-info .quantity-icon {
+  background-color: #E0E0E0;
+  border-radius: 4px;
+  width: 19.39px;
+  height: 19.39px;
+  display: grid;
+  place-items: center;
+}
+.articles .article .quantity-info .quantity-icon .icon {
+  width: 14px;
+  height: auto;
+}
+
 footer {
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.2142857143rem;
-  color: #B9BDCF;
+  color: #BDBDBD;
   text-align: center;
   margin-bottom: 24px;
 }
 footer .author {
   text-decoration: none;
-  color: #B9BDCF;
+  color: #BDBDBD;
   font-weight: 700;
 }
 footer .author:hover {
@@ -77,8 +199,8 @@ footer .author:hover {
 
 @media screen and (min-width: 992px) {
   .container {
-    padding-left: 16.5277777778vw;
-    padding-right: 16.5277777778vw;
+    padding-left: 16.6666666667vw;
+    padding-right: 16.6666666667vw;
   }
 }
 
