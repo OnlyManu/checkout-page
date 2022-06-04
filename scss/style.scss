@@ -36,12 +36,18 @@ html{
         fill: #828282;
     }
 }
+::placeholder{
+    color: #828282;
+}
 .heading-lg{
     @include setFontProps(24, 29, 600);
 }
 .heading-md{
     @include setFontProps(14, 17, 600);
     color: $color-secondary;
+}
+.name{
+    @include setFontProps(12, 15, 600);
 }
 .price{
     @include setFontProps(12, 15, 600);
@@ -56,7 +62,18 @@ html{
     @include setFontProps(16, 20, 600);
     color: $color-secondary;
 }
-
+.info{
+    @include setFontProps(14, 17, 600);
+    color: $color-secondary;
+}
+.input-label{
+    @include setFontProps(10, 12, 600);
+    color: #4F4F4F;
+}
+.checkbox-label{
+    @include setFontProps(10, 12, 600);
+    color: #4F4F4F;
+}
 header{
     margin: {
         top: 32px;
@@ -70,10 +87,12 @@ aside{
     display: flex;
     flex-direction: column;
     gap: 87.15px;
+    margin-bottom: 39px;
     padding: {
         left: 26.87px;
+        right: 26.87px;
         top: 30.56px;
-        bottom: 30.56px;
+        bottom: 14px;
     };
     .articles{
         display: flex;
@@ -105,7 +124,7 @@ aside{
         }
         .prices{
             display: flex;
-            align-items: flex-end;
+            align-items: baseline;
             .price{
                 width: 70px;
             }
@@ -137,10 +156,197 @@ aside{
         }
     }
 }
+.check{
+    .info{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 9.71px;
+        padding-bottom: 9.71px;
+        border-top: 1px solid $color-footer;
+    }
+}
 main{
-    
+    width: 100%;
+    margin-bottom: 94.98px
+}
+form{
+    display: flex;
+    flex-direction: column;
+    fieldset{
+        border: none;
+        display: flex;
+        flex-direction: column;
+        padding-top: 11.2px;
+    }
+    .inputs{
+        display: flex;
+        flex-direction: column;
+        gap: 16.52px;
+    }
+}
+fieldset:first-child{
+    margin-bottom: 45.04px;
+}
+.form-input{
+    display: flex;
+    flex-direction: column;
+    gap: 5.23px;
+    .input-group{
+        position: relative;
+        width: 100%;
+        height: 40.56px;
+        display: flex;
+        align-items: center;
+        .input-icon{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-45%) translateX(11.75px);
+            .icon{
+                width: 21px;
+                height: 18.67px;
+            }
+        }
+        input{
+            width: 100%;
+            height: 100%;
+            padding-left: 39.6px;
+            background-color: transparent;
+            border: 1px solid #828282;
+            border-radius: 12px;
+            @include setFontProps(12, 15, 600);
+            color: $color-secondary;
+            &:focus{
+                outline: none;
+                border-color: $color-tertiary;
+            }
+        }
+    }
+}
+.two-inputs{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 23.28px;
+}
+.checkbox-group{
+    margin-top: 17.3px;
+    display: flex;
+    align-items: center;
+    gap: 7.78px;
+
+    .checkbox{
+        position: relative;
+        width: 16px;
+        height: 15px;
+        user-select: none;
+        overflow: hidden;
+        margin: 0;
+        input{
+            position: absolute;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .background{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border: 1px solid #828282;
+            border-radius: 4px;
+            &::after{
+                content: "";
+                position: absolute;
+                display: none;
+                left: 50%;
+                top: 30%;
+                width: 5px;
+                height: 7px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg) translateX(-60%);
+            }
+        }
+        &:hover input ~ .background{
+            border: 1px solid $color-tertiary;
+        }
+        & input:checked ~ .background{
+            background-color: $color-tertiary;
+            border: 1px solid white;
+        }
+        & input:checked ~ .background::after{
+            display: block;
+        }
+    }
+}
+.dropdown{
+    .dropdown-icon{
+        position: absolute;
+        display: grid;
+        place-items: center;
+        right: 0;
+        top: 50%;
+        transform: translateY(-45%) translateX(-8.98px);
+        width: 15px;
+        height: 15px;
+        background-color: #E0E0E0;
+        border-radius: 4px;
+        cursor: pointer;
+        .icon{
+            width: 14.92px;
+            height: 14.92px;
+        }
+    }
+    input{
+        z-index: 102;
+        padding-right: 25px;
+    }
+    datalist {
+        z-index: 100;
+        position: absolute;
+        background-color: white;
+        border: 1px solid $color-footer;
+        width: 100%;
+        padding: 5px;
+        max-height: 10rem;
+        overflow-y: auto;
+        bottom: 0;
+        transform: translateY(104%) translateX(6px);
+    } 
+    option {
+        background-color: white;
+        padding: 4px;
+        margin-bottom: 1px;
+        font-size: 18px;
+        cursor: pointer;
+        &:hover{
+            color: $color-tertiary;
+        background-color: #FFFFFF;
+        }
+        &.active{
+            background-color: $color-tertiary;
+            color: #FFFFFF;
+        }
+    }
 }
 
+.btn-submit{
+    align-self: flex-end;
+    margin-top: 20.49px;
+    width: 166px;
+    height: 54px;
+    border: none;
+    border-radius: 12px;
+    background-color: $color-tertiary;
+    color: #FFFFFF;
+    @include setFontProps(16, 20, 600);
+}
 footer{
     @include setFontProps(14, 17, 500);
     color: $color-footer;
@@ -157,10 +363,174 @@ footer{
 }
 
 @media screen and (min-width: 768px) {
-    
+    .heading-lg{
+        @include setFontProps(36, 44, 600);
+    }
+    .heading-md{
+        @include setFontProps(18, 22, 600);
+    }
+    .price{
+        @include setFontProps(16, 20, 600);
+    }
+    .name{
+        @include setFontProps(16, 20, 600);
+    }
+    .old-price{
+        @include setFontProps(12, 15, 600);
+    }
+    .info{
+        @include setFontProps(18, 22, 600);
+    }
+    .input-label{
+        @include setFontProps(12, 15, 600);
+    }
+    .checkbox-label{
+        @include setFontProps(12, 15, 600);
+        color: #4F4F4F;
+    }
+    .articles{
+        .article{
+            .article-info{
+                justify-content: start;
+                gap: 48px;
+            }
+            .article-picture{
+                width: widthInVW(100);
+            }
+            .quantity-info{
+                width: 200px;
+            }
+        }
+    }
+    .form-input{
+        gap: 6.97px;
+        .input-group{
+            height: 56px;
+            .input-icon{
+                transform: translateY(-45%) translateX(14px);
+                .icon{
+                    width: 20px;
+                    height: auto;
+                }
+            }
+            input{
+                padding-left: 52px;
+                @include setFontProps(16, 20, 600);
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 992px) {
+    .container{
+        padding: {
+            left: 12%;
+            right: 12%;
+        };
+        display: grid;
+        grid-template-areas: 
+        "head head"
+        "main aside"
+        "foot foot";
+        column-gap: 112px;
+        header{
+            grid-area: head;
+        }
+        main{
+            grid-area: main;
+        }
+        aside{
+            grid-area: aside;
+            width: widthInVW(383, 1440);
+            height: fit-content;
+        }
+        footer{
+            grid-area: foot;
+        }
+    }
+    header{
+        margin: {
+            top: 64px;
+            bottom: 50.94px;
+        };
+    }
+    aside{
+        gap: 95.29px;
+        margin: none;
+        padding: {
+            left: widthInVW(29.72, 1440);
+            right: widthInVW(29.72, 1440);
+            top: 31.69px;
+            bottom: 14px;
+        };
+        .articles{
+            display: flex;
+            flex-direction: column;
+            gap: 28.48px;
+        }
+    }
+    .articles{
+        .article{
+            gap: widthInVW(20.2, 1440);
+            .article-info{
+                justify-content: space-between;
+                gap: none;
+            }
+            .article-picture{
+                width: widthInVW(134.21, 1440);
+            }
+            .quantity-info{
+                width: widthInVW(134.25, 1440);
+            }
+        }        
+    }
+    .check{
+        .info{
+            padding-top: 10.73px;
+            padding-bottom: 10.73px;
+        }
+    }
+    main{
+        margin-bottom: 159px;
+    }
+    form{
+        fieldset{
+            padding-top: 14.95px;
+        }
+        .inputs{
+            gap: 20.01px;
+        }
+    }
+    fieldset:first-child{
+        margin-bottom: 58.01px;
+    }
+    .two-inputs{
+        gap: widthInVW(31, 1440);
+    }
+    .checkbox-group{
+        margin-top: 20px;
+        gap: 11px;
+        .checkbox{
+            width: 21px;
+            height: 21px;
+            .background{
+                &::after{
+                    width: 6px;
+                    height: 10px;
+                    border: solid white;
+                    border-width: 0 2px 2px 0;
+                    -webkit-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                    transform: rotate(45deg) translateX(-60%);
+                }
+            }
+        }
+    }
+    .btn-submit{
+        margin-top: 20px;
+    }
+}
+@media screen and (min-width: 1440) {
     .container{
         padding: {
             left: $padding-desktop;
