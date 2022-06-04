@@ -3,7 +3,7 @@ const countries=document.getElementById("countries");
 input.onfocus = function () {
     countries.style.display = 'block';  
 };
-console.log(countries.options);
+
 for (let option of countries.options) {
     option.onclick = function () {
         input.value = option.value;
@@ -48,7 +48,6 @@ function addActive(x) {
     if (currentFocus >= x.length) currentFocus = 0;
     if (currentFocus < 0) currentFocus = (x.length - 1);
     x[currentFocus].classList.add("active");
-    console.log("active");
 }
 function removeActive(x) {
     for (var i = 0; i < x.length; i++) {

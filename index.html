@@ -42,10 +42,10 @@
                   <span class="price">$54.99</span><span class="old-price">$94.99</span>
                 </div>
               </div>
-              <div class="quantity-info">
-                <span class="quantity-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M19 13H5v-2h14v2z"/></svg></span>
+              <div class="quantity-info bar1" id="bar1">
+                <span class="quantity-icon remove"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M19 13H5v-2h14v2z"/></svg></span>
                 <span class="quantity">1</span>
-                <span class="quantity-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+                <span class="quantity-icon add"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
               </div>
             </div>
           </div>
@@ -58,10 +58,10 @@
                   <span class="price">$74.99</span><span class="old-price">$124.99</span>
                 </div>
               </div>
-              <div class="quantity-info">
-                <span class="quantity-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M19 13H5v-2h14v2z"/></svg></span>
+              <div class="quantity-info bar2" id="bar2">
+                <span class="quantity-icon remove"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M19 13H5v-2h14v2z"/></svg></span>
                 <span class="quantity">1</span>
-                <span class="quantity-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+                <span class="quantity-icon add"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@
           </div>
           <div class="info">
             <span class="label">Total</span>
-            <span class="value">$148.98</span>
+            <span class="value" id="total-price">$148.98</span>
           </div>
         </div>
       </aside>
@@ -139,7 +139,7 @@
                 <div class="form-input">
                   <label class="input-label" for="postal_code">Postal code</label>
                   <div class="input-group">
-                    <input type="number" class="input" id="postal_code" placeholder="Your postal code.." list="" autocomplete="off">
+                    <input type="text" class="input" id="postal_code" placeholder="Your postal code.." list="" autocomplete="off">
                     <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon"><path d="M20 6H10v6H8V4h6V0H6v6H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg></span>
                   </div>
                 </div>
@@ -148,7 +148,7 @@
           </fieldset>
           <div class="checkbox-group">
             <label class="checkbox">
-              <input type="checkbox" name="" aria-labelledby="save">
+              <input type="checkbox" name="" aria-labelledby="save" id="save">
               <span class="background"></span>
             </label>
             <span id="save" class="checkbox-label">Save this information for next time</span>

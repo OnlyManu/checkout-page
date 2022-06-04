@@ -170,6 +170,7 @@ aside .check {
 }
 .articles .article .article-picture {
   width: 32.7333333333vw;
+  height: auto;
   border-radius: 13px;
 }
 .articles .article .article-info {
@@ -283,6 +284,10 @@ fieldset:first-child {
 .form-input .input-group input:focus {
   outline: none;
   border-color: #F2994A;
+}
+.form-input .input-group input.error {
+  border-color: #e71b0c;
+  box-shadow: 0 0 8px rgba(231, 27, 12, 0.5);
 }
 
 .two-inputs {
@@ -478,10 +483,6 @@ footer .author:hover {
     color: #4F4F4F;
   }
 
-  .articles .article .article-info {
-    justify-content: start;
-    gap: 48px;
-  }
   .articles .article .article-picture {
     width: 26.6666666667vw;
   }

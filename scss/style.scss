@@ -110,6 +110,7 @@ aside{
         gap: 18.47px;
         .article-picture{
             width: widthInVW(122.75);
+            height: auto;
             border-radius: 13px;
         }
         .article-info{
@@ -219,6 +220,10 @@ fieldset:first-child{
             &:focus{
                 outline: none;
                 border-color: $color-tertiary;
+            }
+            &.error{
+                border-color: #e71b0c;
+                box-shadow: 0 0 8px rgba(231, 27, 12, 0.5);
             }
         }
     }
@@ -390,10 +395,6 @@ footer{
     }
     .articles{
         .article{
-            .article-info{
-                justify-content: start;
-                gap: 48px;
-            }
             .article-picture{
                 width: widthInVW(100);
             }
