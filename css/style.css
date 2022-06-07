@@ -52,10 +52,138 @@ html {
   background-color: #FFFFFF;
 }
 
+body {
+  position: relative;
+}
+body.hide {
+  overflow: hidden;
+}
+
 .container {
   width: 100%;
   padding-left: 3.2vw;
   padding-right: 3.2vw;
+}
+
+.alert-wrapper {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  z-index: 1500;
+}
+.alert-wrapper.close {
+  display: none;
+}
+.alert-wrapper .alert-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+  padding: 1rem;
+}
+.alert-wrapper .alert-box.error .alert-message::after {
+  content: "Oh no!";
+}
+.alert-wrapper .alert-box.error .alert-description::after {
+  content: "Something went wrong";
+}
+.alert-wrapper .alert-box.error .alert-icon {
+  background-color: #ce2610;
+}
+.alert-wrapper .alert-box.error .icon-error {
+  display: block;
+}
+.alert-wrapper .alert-box.error .btn-alert {
+  border: 2px solid #ce2610;
+  color: #ce2610;
+}
+.alert-wrapper .alert-box.error .btn-alert::after {
+  content: "Try again";
+}
+.alert-wrapper .alert-box.error .btn-alert:hover {
+  background-color: #ce2610;
+  color: #FFFFFF;
+}
+.alert-wrapper .alert-box.sucess .alert-message::after {
+  content: "Woohoo!";
+}
+.alert-wrapper .alert-box.sucess .alert-description::after {
+  content: "Everything went great";
+}
+.alert-wrapper .alert-box.sucess .alert-icon {
+  background-color: #0ac238;
+}
+.alert-wrapper .alert-box.sucess .icon-sucess {
+  display: block;
+}
+.alert-wrapper .alert-box.sucess .btn-alert {
+  border: 2px solid #0ac238;
+  color: #0ac238;
+}
+.alert-wrapper .alert-box.sucess .btn-alert::after {
+  content: "Continue";
+}
+.alert-wrapper .alert-box.sucess .btn-alert:hover {
+  background-color: #0ac238;
+  color: #FFFFFF;
+}
+.alert-wrapper .alert-box .close-icon {
+  position: absolute;
+  right: 0.4rem;
+  top: 0.4rem;
+}
+.alert-wrapper .alert-box .close-icon .icon path {
+  fill: #BDBDBD;
+}
+.alert-wrapper .alert-box .alert-message {
+  color: #333333;
+  font-size: 1.7142857143rem;
+  font-weight: 600;
+  line-height: 2.0714285714rem;
+}
+.alert-wrapper .alert-box .alert-description {
+  font-size: 0.8571428571rem;
+  font-weight: 400;
+  line-height: 1.0714285714rem;
+  width: 11.4285714286rem;
+  display: flex;
+  justify-content: center;
+}
+.alert-wrapper .alert-box .alert-description::after {
+  text-align: center;
+}
+.alert-wrapper .alert-icon {
+  margin-top: 0.8rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+}
+.alert-wrapper .alert-icon svg {
+  width: 2.8rem;
+  height: auto;
+  display: none;
+}
+.alert-wrapper .alert-icon svg path {
+  fill: #FFFFFF;
+}
+.alert-wrapper .btn-alert {
+  font-weight: 700;
+  margin-top: 2.2rem;
+  background-color: #FFFFFF;
+  display: grid;
+  place-items: center;
+  width: 6.4rem;
+  padding: 6px 12px;
+  border-radius: 14px;
 }
 
 .color-primary {
@@ -208,6 +336,7 @@ aside .check {
   height: 19.39px;
   display: grid;
   place-items: center;
+  cursor: pointer;
 }
 .articles .article .quantity-info .quantity-icon .icon {
   width: 14px;
@@ -245,6 +374,12 @@ form .inputs {
 
 fieldset:first-child {
   margin-bottom: 45.04px;
+}
+
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+  appearance: none !important;
+  background-color: #FFFFFF !important;
+  color: #333333 !important;
 }
 
 .form-input {
@@ -353,6 +488,9 @@ fieldset:first-child {
   display: block;
 }
 
+.dropdown.open .dropdown-icon .icon {
+  transform: rotate(180deg);
+}
 .dropdown .dropdown-icon {
   position: absolute;
   display: grid;
@@ -360,10 +498,11 @@ fieldset:first-child {
   right: 0;
   top: 50%;
   transform: translateY(-45%) translateX(-8.98px);
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   background-color: #E0E0E0;
   border-radius: 4px;
+  z-index: 1000;
   cursor: pointer;
 }
 .dropdown .dropdown-icon .icon {
@@ -378,28 +517,29 @@ fieldset:first-child {
   z-index: 100;
   position: absolute;
   background-color: white;
+  padding: 12px 4px;
   border: 1px solid #BDBDBD;
+  border-radius: 12px;
   width: 100%;
-  padding: 5px;
   max-height: 10rem;
   overflow-y: auto;
   bottom: 0;
-  transform: translateY(104%) translateX(6px);
+  transform: translateY(105%);
 }
 .dropdown option {
   background-color: white;
-  padding: 4px;
+  padding: 6px;
   margin-bottom: 1px;
   font-size: 18px;
+  border-radius: 12px;
   cursor: pointer;
 }
-.dropdown option:hover {
+.dropdown option:hover, .dropdown option.focused {
+  background-color: rgba(242, 153, 74, 0.15);
   color: #F2994A;
-  background-color: #FFFFFF;
 }
-.dropdown option.active {
-  background-color: #F2994A;
-  color: #FFFFFF;
+.dropdown option .active {
+  color: #F2994A;
 }
 
 .btn-submit {
@@ -481,6 +621,28 @@ footer .author:hover {
     font-weight: 600;
     line-height: 1.0714285714rem;
     color: #4F4F4F;
+  }
+
+  .alert-wrapper .alert-box {
+    padding: 1.8rem;
+  }
+  .alert-wrapper .alert-box .alert-message {
+    font-size: 2.2857142857rem;
+    font-weight: 600;
+    line-height: 2.8571428571rem;
+  }
+  .alert-wrapper .alert-box .alert-description {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2142857143rem;
+    width: 13.1428571429rem;
+  }
+  .alert-wrapper .alert-icon {
+    width: 7rem;
+    height: 7rem;
+  }
+  .alert-wrapper .alert-icon svg {
+    width: 4rem;
   }
 
   .articles .article .article-picture {

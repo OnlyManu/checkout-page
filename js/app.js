@@ -69,8 +69,23 @@ class FormManager{
         }
         return false;
     }
+    saveInformations(){
+        this.inputs.forEach(inp=>{
+            localStorage.setItem(inp.id, inp.el.value);
+        })
+    }
+    loadInformations(){
+        this.inputs.forEach(inp=>{
+            inp.el.value=localStorage.getItem(inp.id);
+        })
+    }
 }
 const myForm=new FormManager();
+const body=document.querySelector('body');
+const alertWrapper=document.querySelector('.alert-wrapper');
+const alertBox=document.querySelector('.alert-box');
+const alertCloseButton=document.querySelector('.alert-box .close-icon');
+const alertActionButton=document.querySelector('.btn-alert');
 const submitButton=document.querySelector('.btn-submit');
 const totalPrice=document.getElementById('total-price');
 const articlesNode=document.querySelectorAll('.article');
@@ -103,5 +118,39 @@ myForm.inputs.forEach(e=>{
 });
 submitButton.addEventListener('click', function(e){
     e.preventDefault()
-    myForm.verif_empty_all();
+    if(myForm.verif_empty_all()){
+        alertBox.classList.remove('error');
+        alertBox.classList.add('sucess');
+        if(myForm.saveCheckbox.el.checked){
+            localStorage.setItem('save', true);
+            myForm.saveInformations();
+        }else{
+            localStorage.setItem('save', false);
+        }
+    }else{
+        alertBox.classList.remove('sucess');
+        alertBox.classList.add('error');
+    }
+    openAlertBox();
 })
+alertActionButton.addEventListener('click', closeAlertBox, false);
+alertCloseButton.addEventListener('click', closeAlertBox, false);
+document.addEventListener('DOMContentLoaded', function(){
+    if(localStorage.getItem('save')=='true'){
+        myForm.loadInformations();
+    }   
+}, false);
+body.addEventListener('keypress', function(e){
+    if(e.keycode==13){
+        submitButton.click()
+    }
+}, false)
+
+function closeAlertBox(){
+    alertWrapper.classList.add('close');
+    body.classList.remove('hide');
+}
+function openAlertBox(){
+    alertWrapper.classList.remove('close');
+    body.classList.add('hide');
+}

@@ -18,12 +18,148 @@ html{
     color: $color-primary;
     background-color: #FFFFFF;
 }
+body{
+    position: relative;
+    &.hide{
+        overflow: hidden;
+    }
+}
 .container{
     width: 100%;
     padding: {
         left: $padding-mobile;
         right: $padding-mobile;
     };
+}
+.alert-wrapper{
+    position: fixed;
+    background-color: rgba(#000000,  0.7);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    z-index: 1500;
+    &.close{
+        display: none;
+    }
+    .alert-box{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #FFFFFF;
+        padding: 1rem;
+        &.error{
+            .alert-message{
+                &::after{
+                    content: "Oh no!";
+                }
+            }
+            .alert-description{
+                &::after{
+                    content: "Something went wrong";
+                }
+            }
+            .alert-icon{
+                background-color: #ce2610;
+            }
+            .icon-error{
+                display: block;
+            }
+            .btn-alert{
+                border: 2px solid #ce2610;
+                color: #ce2610;
+                &::after{
+                    content: "Try again";
+                }
+                &:hover{
+                    background-color: #ce2610;
+                    color: #FFFFFF;
+                }
+            }
+        }
+        &.sucess{
+            .alert-message{
+                &::after{
+                    content: "Woohoo!";
+                }
+            }
+            .alert-description{
+                &::after{
+                    content: "Everything went great";
+                }
+            }
+            .alert-icon{
+                background-color: #0ac238;
+            }
+            .icon-sucess{
+                display: block;
+            }
+            .btn-alert{
+                border: 2px solid #0ac238;
+                color: #0ac238;
+                &::after{
+                    content: "Continue";
+                }
+                &:hover{
+                    background-color: #0ac238;
+                    color: #FFFFFF;
+                }
+            }
+        }
+        .close-icon{
+            position: absolute;
+            right: 0.4rem;
+            top: 0.4rem;
+            .icon{
+                path{
+                    fill: $color-footer;
+                }
+            }
+        }
+        .alert-message{
+            color: $color-secondary;
+            @include setFontProps(24, 29, 600);
+        }
+        .alert-description{
+            @include setFontProps(12, 15, 400);
+            width: widthInRem(160);
+            display: flex;
+            justify-content: center;
+            &::after{
+                text-align: center;
+            }
+        }
+    }
+    .alert-icon{
+        margin-top: 0.8rem;
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        margin-bottom: 1rem;
+        svg{
+            width: 2.8rem;
+            height: auto;
+            display: none;
+            path{
+                fill:#FFFFFF;
+            }
+        }
+    }
+    .btn-alert{
+        font-weight: 700;
+        margin-top: 2.2rem;
+        background-color: #FFFFFF;
+        display: grid;
+        place-items: center;
+        width: 6.4rem;
+        padding: 6px 12px;
+        border-radius: 14px;
+    }
 }
 .color-primary{
     color: $color-primary;
@@ -149,6 +285,7 @@ aside{
                 height: 19.39px;
                 display: grid;
                 place-items: center;
+                cursor: pointer;
                 .icon{
                     width: 14px;
                     height: auto;
@@ -187,6 +324,11 @@ form{
 }
 fieldset:first-child{
     margin-bottom: 45.04px;
+}
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active{
+    appearance: none !important;
+    background-color:#FFFFFF !important;
+    color: $color-secondary !important;
 }
 .form-input{
     display: flex;
@@ -291,6 +433,13 @@ fieldset:first-child{
     }
 }
 .dropdown{
+    &.open{
+        .dropdown-icon{
+            .icon{
+                transform: rotate(180deg);
+            }
+        }
+    }
     .dropdown-icon{
         position: absolute;
         display: grid;
@@ -298,10 +447,11 @@ fieldset:first-child{
         right: 0;
         top: 50%;
         transform: translateY(-45%) translateX(-8.98px);
-        width: 15px;
-        height: 15px;
+        width: 20px;
+        height: 20px;
         background-color: #E0E0E0;
         border-radius: 4px;
+        z-index: 1000;
         cursor: pointer;
         .icon{
             width: 14.92px;
@@ -316,27 +466,28 @@ fieldset:first-child{
         z-index: 100;
         position: absolute;
         background-color: white;
+        padding: 12px 4px;
         border: 1px solid $color-footer;
+        border-radius: 12px;
         width: 100%;
-        padding: 5px;
         max-height: 10rem;
         overflow-y: auto;
         bottom: 0;
-        transform: translateY(104%) translateX(6px);
+        transform: translateY(105%);
     } 
     option {
         background-color: white;
-        padding: 4px;
+        padding: 6px;
         margin-bottom: 1px;
         font-size: 18px;
+        border-radius: 12px;
         cursor: pointer;
-        &:hover{
+        &:hover, &.focused{
+            background-color: rgba($color-tertiary, 0.15);
             color: $color-tertiary;
-        background-color: #FFFFFF;
         }
-        &.active{
-            background-color: $color-tertiary;
-            color: #FFFFFF;
+        .active{
+            color: $color-tertiary;
         }
     }
 }
@@ -392,6 +543,25 @@ footer{
     .checkbox-label{
         @include setFontProps(12, 15, 600);
         color: #4F4F4F;
+    }
+    .alert-wrapper{
+        .alert-box{
+            padding: 1.8rem;
+            .alert-message{
+                @include setFontProps(32, 40, 600);
+            }
+            .alert-description{
+                @include setFontProps(14, 17, 600);
+                width: widthInRem(184);
+            }
+        }
+        .alert-icon{
+            width: 7rem;
+            height: 7rem;
+            svg{
+                width: 4rem;
+            }
+        }
     }
     .articles{
         .article{

@@ -1,13 +1,45 @@
 const input=document.getElementById("country");
 const countries=document.getElementById("countries");
+const dropdownIcon=document.querySelector('.dropdown-icon');
+let currentFocus = -1;
 input.onfocus = function () {
-    countries.style.display = 'block';  
+    countries.style.display = 'block';
+    countries.parentNode.classList.add('open');
+    if(currentFocus>=0){
+        if(input.value!=countries.options[currentFocus].value){
+            currentFocus=-1;
+            addFocus(countries.options)
+        }
+    }  
 };
+
+dropdownIcon.onclick=function(){
+    if(countries.parentNode.classList.contains('open')){
+        countries.style.display = 'none';
+        countries.parentNode.classList.remove('open');
+    }else{
+        input.focus();
+        countries.style.display = 'block';
+        countries.parentNode.classList.add('open');
+    }
+}
 
 for (let option of countries.options) {
     option.onclick = function () {
         input.value = option.value;
         countries.style.display = 'none';
+        countries.parentNode.classList.remove('open');
+    }
+    option.onmouseover=function(opt){
+        let pos=0;
+        for(let i=0; i<countries.options.length; i++){
+            countries.options[i].classList.remove('focused');
+            if(countries.options[i].value==opt.currentTarget.value){
+                pos=i;
+            }
+        }
+        currentFocus=pos;
+        addFocus(countries.options);
     }
 };
 
@@ -21,17 +53,17 @@ input.oninput = function() {
             option.style.display = "none";
         }
     };
+    addFocus(countries.options);
 }
 
-var currentFocus = -1;
 input.onkeydown = function(e) {
     if(e.keyCode == 40){
         currentFocus++
-        addActive(countries.options);
+        addFocus(countries.options);
     }
     else if(e.keyCode == 38){
         currentFocus--
-        addActive(countries.options);
+        addFocus(countries.options);
     }
     else if(e.keyCode == 13){
         e.preventDefault();
@@ -42,15 +74,15 @@ input.onkeydown = function(e) {
     }
 }
 
-function addActive(x) {
+function addFocus(x) {
     if (!x) return false;
-    removeActive(x);
+    removeFocus(x);
     if (currentFocus >= x.length) currentFocus = 0;
     if (currentFocus < 0) currentFocus = (x.length - 1);
-    x[currentFocus].classList.add("active");
+    x[currentFocus].classList.add("focused");
 }
-function removeActive(x) {
+function removeFocus(x) {
     for (var i = 0; i < x.length; i++) {
-    x[i].classList.remove("active");
+        x[i].classList.remove("focused");
     }
 }
