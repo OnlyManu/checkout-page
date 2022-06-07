@@ -138,6 +138,7 @@ alertCloseButton.addEventListener('click', closeAlertBox, false);
 document.addEventListener('DOMContentLoaded', function(){
     if(localStorage.getItem('save')=='true'){
         myForm.loadInformations();
+        myForm.saveCheckbox.el.checked=true;
     }   
 }, false);
 body.addEventListener('keypress', function(e){
