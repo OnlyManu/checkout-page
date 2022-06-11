@@ -125,6 +125,7 @@ body{
         }
         .alert-description{
             @include setFontProps(12, 15, 400);
+            color: $color-footer;
             width: widthInRem(160);
             display: flex;
             justify-content: center;
@@ -566,7 +567,7 @@ footer{
     .articles{
         .article{
             .article-picture{
-                width: widthInVW(100);
+                width: widthInVW(65);
             }
             .quantity-info{
                 width: 200px;
@@ -587,6 +588,25 @@ footer{
             input{
                 padding-left: 52px;
                 @include setFontProps(16, 20, 600);
+            }
+        }
+    }
+    .checkbox-group{
+        margin-top: 20px;
+        gap: 11px;
+        .checkbox{
+            width: 21px;
+            height: 21px;
+            .background{
+                &::after{
+                    width: 6px;
+                    height: 10px;
+                    border: solid white;
+                    border-width: 0 2px 2px 0;
+                    -webkit-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                    transform: rotate(45deg) translateX(-60%);
+                }
             }
         }
     }
@@ -678,30 +698,11 @@ footer{
     .two-inputs{
         gap: widthInVW(31, 1440);
     }
-    .checkbox-group{
-        margin-top: 20px;
-        gap: 11px;
-        .checkbox{
-            width: 21px;
-            height: 21px;
-            .background{
-                &::after{
-                    width: 6px;
-                    height: 10px;
-                    border: solid white;
-                    border-width: 0 2px 2px 0;
-                    -webkit-transform: rotate(45deg);
-                    -ms-transform: rotate(45deg);
-                    transform: rotate(45deg) translateX(-60%);
-                }
-            }
-        }
-    }
     .btn-submit{
         margin-top: 20px;
     }
 }
-@media screen and (min-width: 1440) {
+@media screen and (min-width: 1440px) {
     .container{
         padding: {
             left: $padding-desktop;
