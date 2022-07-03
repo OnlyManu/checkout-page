@@ -42,14 +42,17 @@ class FormManager{
         let result=true;
         this.inputs.forEach(e=>{
             let state=this.verif_empty(e.el);
+            let errorMessage=e.el.parentNode.querySelector('.error-message');
             if(!state){
-                e.el.classList.add('error');
+                e.el.parentNode.classList.add('error');
+                errorMessage!=null?(errorMessage.innerText='This field must not be empty'):'';
                 result=false;
             }else{
                 if(e.type=="phone" || e.type=="email"){
                     state=eval('this.verif_'+e.type+'(e.el)');
                     if(!state){
-                        e.el.classList.add('error');
+                        e.el.parentNode.classList.add('error');
+                        errorMessage!=null?(errorMessage.innerText='Enter the correct format'):'';
                         result=false;
                     }
                 }
@@ -103,6 +106,11 @@ articleTab.forEach(e=>{
         total_price();
     });
 })
+function deleteClassError(p){
+    p.classList.remove('error');
+    let errorMessage=p.querySelector('.error-message');
+    errorMessage!=null?errorMessage.classList.remove('visible'):true;
+}
 function total_price(){
     let total=articleTab.reduce((a, b)=>{
         return (parseInt(b.quantity.innerText)*b.price)+a;
@@ -112,8 +120,20 @@ function total_price(){
 }
 myForm.inputs.forEach(e=>{
     e.el.addEventListener('keypress', function(f){
-        if(f.currentTarget.classList.contains('error'))
-            f.currentTarget.classList.remove('error');
+        if(f.currentTarget.parentNode.classList.contains('error'))
+            deleteClassError(f.currentTarget.parentNode)
+    })
+    e.el.addEventListener('focus', function(f){
+        if(f.currentTarget.parentNode.classList.contains('error')){
+            let errorMessage=f.currentTarget.parentNode.querySelector('.error-message');
+            errorMessage!=null?errorMessage.classList.add('visible'):'';
+        }
+    })
+    e.el.addEventListener('focusout', function(f){
+        if(f.currentTarget.parentNode.classList.contains('error')){
+            let errorMessage=f.currentTarget.parentNode.querySelector('.error-message');
+            errorMessage!=null?errorMessage.classList.remove('visible'):'';
+        }
     })
 });
 submitButton.addEventListener('click', function(e){
@@ -141,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function(){
         myForm.saveCheckbox.el.checked=true;
     }   
 }, false);
-body.addEventListener('keypress', function(e){
+document.addEventListener('keypress', function(e){
     if(e.keycode==13){
         submitButton.click()
     }
