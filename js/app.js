@@ -119,7 +119,7 @@ function total_price(){
     totalPrice.innerText='$'+total.toFixed(2);
 }
 myForm.inputs.forEach(e=>{
-    e.el.addEventListener('keypress', function(f){
+    e.el.addEventListener('keydown', function(f){
         if(f.currentTarget.parentNode.classList.contains('error'))
             deleteClassError(f.currentTarget.parentNode)
     })
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function(){
         myForm.saveCheckbox.el.checked=true;
     }   
 }, false);
-document.addEventListener('keypress', function(e){
+document.addEventListener('keydown', function(e){
     if(e.keycode==13){
         submitButton.click()
     }

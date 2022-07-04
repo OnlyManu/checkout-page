@@ -28,6 +28,7 @@ for (let option of countries.options) {
     option.onclick = function () {
         input.value = option.value;
         countries.style.display = 'none';
+        input.parentNode.classList.remove('error')
         countries.parentNode.classList.remove('open');
     }
     option.onmouseover=function(opt){
